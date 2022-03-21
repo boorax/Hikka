@@ -8,5 +8,3 @@ forward:
 reverse:
 - 9000:9000
 autocreate: true
-volumes:
-- /root/.cache/pip
