@@ -1,10 +1,10 @@
-name: hikka
-image: python:3
-command: ["python3", "-m", "hikka", "--root"]
-workdir: /usr/src/app
-sync:
- - .:/usr/src/app
-forward:
-  - 8080:80
-reverse:
-  - 9000:9001
+version: "3.9"
+services:
+  worker:
+    context: .
+    dockerfile: Dockerfile
+    target: prod
+    environment:
+      SESSION: $SESSION
+      API_ID: $API_ID
+      API_HASH: $API_HASH
