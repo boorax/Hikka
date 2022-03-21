@@ -1,6 +1,12 @@
-version: "3.9"
-services:
-  build:
-    context: .
-    dockerfile: Dockerfile
-    target: prod
+name: hikka
+image: okteto/python:3
+command: ["python", "-m", "hikka", "--root"]
+sync:
+- .:/usr/src/app
+forward:
+- 8080:8080
+reverse:
+- 9000:9000
+autocreate: true
+volumes:
+- /root/.cache/pip
